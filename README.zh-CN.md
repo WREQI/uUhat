@@ -55,6 +55,27 @@ perry compile src/main.ts -o dist/uUhat
 perry check src/main.ts
 ```
 
+## Web / WASM 预览（浏览器）
+
+Perry 支持将 TypeScript 编译为 WebAssembly，并在浏览器中运行（`--target web` / `--target wasm` 是同一个目标）。
+文档见：[WebAssembly / Web](https://docs.perryts.com/platforms/wasm.html) 和 [Web](https://docs.perryts.com/platforms/web.html)。
+
+生成单文件 HTML：
+
+```bash
+perry run web src/entry/mobile.ts
+```
+
+本地预览（需要 COOP/COEP 头以启用 `SharedArrayBuffer` / WASM threads）：
+
+```bash
+python3 tools/serve_web.py 8765
+```
+
+然后在浏览器打开：
+
+`http://localhost:8765/uUhat.html`
+
 ## 常见问题
 
 ### 中文输入法提示（预编辑/候选浮窗）不显示
